@@ -8,7 +8,11 @@
 </head>
 <body>
  	<c:forEach items="${tasks}" var="task">
-     	<div>${task.name} - ${task.status.name}</div>
+ 		<form action="/todolist-presentation/end" method="get">
+     		<div>${task.name} - ${task.status.name}</div>
+     		<input type="hidden" value="${task.id}" name="idTask" />
+     		<input type="submit" value="Supprimer">
+     	</form>
 	 </c:forEach>
 </body>
 </html>

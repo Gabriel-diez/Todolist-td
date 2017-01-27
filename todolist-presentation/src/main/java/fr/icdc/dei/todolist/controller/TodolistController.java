@@ -39,5 +39,13 @@ public class TodolistController {
 		page.addObject(TASKS_HTTP_ATTR, todolistService.listTasks());
 		return page;
 	}
+	
+	@RequestMapping(value = "end", method=RequestMethod.POST)
+	public ModelAndView endTask(@RequestParam long idTask) {
+		ModelAndView page = new ModelAndView("Home");
+		todolistService.endTask(idTask);
+		page.addObject(TASKS_HTTP_ATTR, todolistService.listTasks());
+		return page;
+	}
 
 }

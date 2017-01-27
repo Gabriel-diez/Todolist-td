@@ -6,6 +6,7 @@ INSERT INTO tasks_status(name) VALUES ('DELEGATION_PENDING');
 INSERT INTO tasks_status(name) VALUES ('DELEGATED');
 
 -- TASKS
+INSERT INTO tasks(name, id_task_status, beginDate, closedDate) VALUES ('Task Test', 1, DATE '2017-01-20', NULL);
 INSERT INTO tasks(name, id_task_status, closedDate) VALUES ('Hikingyo', 1, NULL);
 INSERT INTO tasks(name, id_task_status, closedDate) VALUES ('StartedTask', 1, NULL);
 INSERT INTO tasks(name, id_task_status, closedDate) VALUES ('FinishedTask', 2, DATE '2016-8-10');

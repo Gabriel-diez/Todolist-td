@@ -60,5 +60,10 @@ public class TodolistServiceTest extends AbstractServiceTest {
 	public void testListTaskStatus() {
 		assertTrue(CollectionUtils.isNotEmpty(todolistService.listTaskStatus()));
 	}
+	
+	@Test
+	public void testEndTaskWorks() {
+		assertTrue(todolistService.endTask(task.getId()));
+	}
 
 }

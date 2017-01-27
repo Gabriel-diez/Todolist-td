@@ -86,16 +86,16 @@ public class TodolistServiceImpl implements TodolistService {
 	}
 
 	@Override
-	public boolean endTask(long idTask) {
+	public Task endTask(long idTask) {
 		Task task = taskDao.findOne(idTask);
-		
-		long diffDates = new Date().getTime() - task.getBeginDate().getTime();
+		Date todayDate = new Date();
+		long diffDates = todayDate.getTime() - task.getBeginDate().getTime();
 		
 		if (TimeUnit.DAYS.convert(diffDates, TimeUnit.MILLISECONDS) >= 7) {
 			task.setStatus(new TaskStatus(TaskStatusEnum.FINISHED.getValue()));
+			task.setClosedDate(todayDate);
 			taskDao.save(task);
-			return true;
 		}
-		return false;
+		return task;
 	}
 }

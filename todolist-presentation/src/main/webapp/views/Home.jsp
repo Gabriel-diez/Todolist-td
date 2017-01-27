@@ -11,7 +11,7 @@
  		<form action="/todolist-presentation/end" method="get">
      		<div>${task.name} - ${task.status.name}</div>
      		<input type="hidden" value="${task.id}" name="idTask" />
-     		<input type="submit" value="Supprimer">
+     		<input type="submit" value="Terminer">
      	</form>
 	 </c:forEach>
 </body>

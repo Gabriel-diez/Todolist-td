@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -22,6 +23,7 @@ public class TodolistServiceTest extends AbstractServiceTest {
 	private static final long USER_ID = 1L;
 	private static final long DELEGATE_USER_ID = 2L;
 	private static final long FINISHED_STATUS_ID = 2L;
+	private static final Date DATE_NOW = new Date();
 	
 	private static User user = new User();
 	private static Task task = new Task();
@@ -68,5 +70,11 @@ public class TodolistServiceTest extends AbstractServiceTest {
 	@Test
 	public void testEndTaskWorks() {
 		assertEquals(todolistService.endTask(task.getId()).getStatus().getId(), FINISHED_STATUS_ID);
+	}
+	
+	@Test
+	public void testClosedDateEndTask() {
+		SimpleDateFormat dt1 = new SimpleDateFormat("yyyyy-mm-dd");
+		assertEquals(dt1.format(todolistService.endTask(task.getId()).getClosedDate()), dt1.format(DATE_NOW));
 	}
 }

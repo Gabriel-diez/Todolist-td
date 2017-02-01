@@ -91,7 +91,7 @@ public class TodolistServiceImpl implements TodolistService {
 		Date todayDate = new Date();
 		long diffDates = todayDate.getTime() - task.getBeginDate().getTime();
 		
-		if (TimeUnit.DAYS.convert(diffDates, TimeUnit.MILLISECONDS) >= 7) {
+		if (TimeUnit.DAYS.convert(diffDates, TimeUnit.MILLISECONDS) > 7) {
 			task.setStatus(new TaskStatus(TaskStatusEnum.FINISHED.getValue()));
 			task.setClosedDate(todayDate);
 			taskDao.save(task);
